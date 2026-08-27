@@ -1,13 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workshop GitHub</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git & GitHub — Workshop COTI Informática</title>
+  <meta name="description" content="Landing page explicando os principais conceitos do Git e GitHub. Projeto do workshop COTI Informática." />
+  <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">projeto-github</a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menu">
+        <span class="hamburger"></span>
+      </button>
+      <nav id="main-nav" class="main-nav">
+        <a href="#about">Sobre</a>
+        <a href="#concepts">Conceitos</a>
+        <a href="#workflow">Fluxo</a>
+        <a href="#learn-more">Aprender</a>
+      </nav>
+    </div>
+  </header>
 
-    <h2>Workshop GitHub Coti Informática</h2>
-    
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Aprenda Git e GitHub</h1>
+          <p class="lead">Controle de versão, colaboração e fluxo de trabalho — tudo que você precisa para trabalhar com código em equipe.</p>
+          <p class="cta-row">
+            <a class="btn primary" href="#concepts">Comece agora</a>
+            <a class="btn ghost" href="#workflow">Ver fluxo</a>
+          </p>
+        </div>
+        <div class="hero-card">
+          <h3>Resumo rápido</h3>
+          <ul>
+            <li><strong>Git</strong> — sistema de controle de versão distribuído (commits, branches).</li>
+            <li><strong>GitHub</strong> — plataforma para hospedar repositórios, Pull Requests, Issues e colaboração.</li>
+            <li><strong>Workflow</strong> — clone, branch, commit, push, pull request, review e merge.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section container">
+      <h2>Sobre este projeto</h2>
+      <p>Este projeto foi criado durante o Workshop de GitHub na COTI Informática como um exercício prático para entender conceitos de versionamento, colaboração e publicação de código. A landing page explica os principais conceitos e mostra um fluxo de trabalho simples.</p>
+    </section>
+
+    <section id="concepts" class="section bg-alt">
+      <div class="container">
+        <h2>Principais conceitos do Git & GitHub</h2>
+        <div class="cards">
+          <article class="card">
+            <header>
+              <h3>Repositório (Repository)</h3>
+            </header>
+            <p>Um repositório armazena o código-fonte, histórico de commits, branches e configurações do projeto. Pode ser público ou privado.</p>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3>Commit</h3>
+            </header>
+            <p>Um commit representa um conjunto de alterações salvas no histórico. Sempre inclua mensagens claras para descrever o que foi feito.</p>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3>Branch</h3>
+            </header>
+            <p>Branches permitem trabalhar em funcionalidades separadas sem afetar o código principal (geralmente <code>main</code> ou <code>master</code>).</p>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3>Pull Request (PR)</h3>
+            </header>
+            <p>Pull Requests são pedidos de revisão e fusão de uma branch para outra. Permitem revisão de código, comentários e integração contínua.</p>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3>Issues</h3>
+            </header>
+            <p>Issues são usados para rastrear tarefas, bugs e solicitações de melhoria. Podem ter labels, assignees e milestones.</p>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3>Fork & Clone</h3>
+            </header>
+            <p>Fork cria uma cópia do repositório em sua conta. Clone copia o repositório localmente para que você possa trabalhar no código.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section">
+      <div class="container">
+        <h2>Exemplo de fluxo de trabalho</h2>
+        <ol class="workflow">
+          <li><strong>Clone</strong> o repositório: <code>git clone &lt;url-do-repo&gt;</code></li>
+          <li><strong>Crie uma branch</strong>: <code>git checkout -b minha-feature</code></li>
+          <li><strong>Faça alterações</strong> e <strong>commit</strong>: <code>git add .</code> e <code>git commit -m "Descrição"</code></li>
+          <li><strong>Push</strong> da branch: <code>git push origin minha-feature</code></li>
+          <li><strong>Abra um Pull Request</strong> no GitHub para revisão e discussão.</li>
+          <li>Depois de aprovado, <strong>merge</strong> na branch principal e faça o deploy.</li>
+        </ol>
+
+        <div class="note">
+          <strong>Dica:</strong> mantenha commits pequenos e mensagens descritivas; isso facilita a revisão e a volta atrás se necessário.
+        </div>
+      </div>
+    </section>
+
+    <section id="learn-more" class="section bg-alt">
+      <div class="container">
+        <h2>Recursos para continuar aprendendo</h2>
+        <ul class="resources">
+          <li><a href="https://docs.github.com/" target="_blank" rel="noopener">GitHub Docs</a></li>
+          <li><a href="https://git-scm.com/book/pt-br/v2" target="_blank" rel="noopener">Pro Git (livro)</a></li>
+          <li><a href="https://guides.github.com/" target="_blank" rel="noopener">GitHub Guides</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Projeto Workshop GitHub — COTI Informática • &copy; <span id="year"></span></p>
+      <p>Repositório: <a href="https://github.com/mmagdev/projeto-github" target="_blank" rel="noopener">mmagdev/projeto-github</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
 </body>
 </html>
