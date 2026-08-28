@@ -1,38 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Uma introdução visual aos principais conceitos do GitHub.">
-    <title>GitHub sem mistério | COTI Informática</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root{--ink:#171918;--muted:#a8ada4;--line:#303531;--lime:#c8f169;--coral:#ff806b;--white:#f7f8f3;--mono:"DM Mono",monospace;--sans:"Space Grotesk",sans-serif}
-        *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--white);background:var(--ink);font-family:var(--sans);line-height:1.5}a{color:inherit;text-decoration:none}.shell{width:min(1120px,calc(100% - 48px));margin:0 auto}.eyebrow,.mono{font-family:var(--mono);letter-spacing:.04em}.eyebrow{color:var(--lime);font-size:.74rem;text-transform:uppercase}
-        .site-header{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;background:rgba(23,25,24,.94);backdrop-filter:blur(12px)}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-weight:700}.brand-mark{color:var(--ink);background:var(--lime);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;font-size:1.15rem}.nav-links{display:flex;gap:28px;align-items:center;color:var(--muted);font-size:.88rem}.nav-links a:hover{color:var(--lime)}.nav-cta{color:var(--ink)!important;background:var(--lime);padding:10px 16px;border-radius:3px;font-weight:600}.menu-button{display:none;border:1px solid var(--line);color:var(--white);background:transparent;padding:8px 11px;font:inherit}
-        .hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:0 -10vw;z-index:-1;opacity:.2;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to right,black,transparent 80%)}h1{font-size:clamp(3.3rem,7vw,6.8rem);line-height:.9;letter-spacing:-.075em;max-width:680px;margin:22px 0 28px}h1 em{color:var(--lime);font-style:normal}.hero-copy{color:var(--muted);font-size:1.08rem;max-width:500px}.hero-actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}.button{border:1px solid var(--lime);background:var(--lime);color:var(--ink);padding:13px 18px;border-radius:3px;font-weight:700;transition:transform .2s}.button:hover{transform:translateY(-3px)}.button.secondary{background:transparent;color:var(--white);border-color:var(--line)}.code-window{border:1px solid #465047;background:#202421;box-shadow:18px 18px 0 var(--coral);transform:rotate(2deg)}.window-bar{height:42px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px;padding:0 15px}.dot{width:8px;height:8px;border-radius:50%;background:var(--coral)}.dot:nth-child(2){background:#e2c14c}.dot:nth-child(3){background:var(--lime)}pre{margin:0;padding:28px 24px;overflow:auto;color:#d3ddd0;font:500 .86rem/2 var(--mono)}.code-green{color:var(--lime)}.code-coral{color:var(--coral)}.code-dim{color:#768078}
-        .section{padding:110px 0;border-top:1px solid var(--line)}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px}h2{font-size:clamp(2rem,4vw,3.6rem);line-height:1;letter-spacing:-.06em;margin:14px 0 0;max-width:620px}.section-intro{color:var(--muted);max-width:330px;margin:0}.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.concept{background:var(--ink);padding:28px;min-height:230px;transition:background .2s}.concept:hover{background:#242925}.concept-number{color:var(--coral);font:.75rem var(--mono)}.concept h3{font-size:1.35rem;margin:35px 0 10px}.concept p{color:var(--muted);margin:0;font-size:.94rem}
-        .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);margin-top:40px}.flow-step{padding:25px 22px;border-right:1px solid var(--line);position:relative}.flow-step:last-child{border:0}.flow-step strong{display:block;color:var(--lime);font:1rem var(--mono);margin-bottom:17px}.flow-step span{color:var(--muted);font-size:.9rem}.flow-step:not(:last-child):after{content:">";color:var(--coral);position:absolute;right:-7px;top:24px;background:var(--ink);padding:0 2px;z-index:1}.faq{max-width:760px;margin:0 auto}details{border-top:1px solid var(--line);padding:22px 0}details:last-child{border-bottom:1px solid var(--line)}summary{cursor:pointer;font-size:1.08rem;font-weight:600;list-style:none;display:flex;justify-content:space-between}summary:after{content:"+";color:var(--lime);font:1.3rem var(--mono)}details[open] summary:after{content:"-"}details p{color:var(--muted);max-width:620px;margin:15px 0 0}footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.83rem;display:flex;justify-content:space-between}
-        @media(max-width:760px){.shell{width:min(100% - 32px,560px)}.nav{min-height:64px}.menu-button{display:block}.nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--ink);border-bottom:1px solid var(--line);padding:20px 16px;flex-direction:column;align-items:stretch}.nav-links.is-open{display:flex}.nav-links a{padding:7px 0}.nav-cta{text-align:center}.hero{min-height:auto;padding:90px 0 120px;grid-template-columns:1fr;gap:58px}h1{font-size:clamp(3.4rem,18vw,5.6rem)}.code-window{transform:none;box-shadow:9px 9px 0 var(--coral)}.section{padding:80px 0}.section-heading{display:block;margin-bottom:32px}.section-intro{margin-top:20px}.concept-grid{grid-template-columns:1fr}.concept{min-height:auto;padding:24px}.concept h3{margin-top:24px}.flow{grid-template-columns:1fr 1fr}.flow-step{border-bottom:1px solid var(--line)}.flow-step:nth-child(2){border-right:0}.flow-step:nth-child(2):after{display:none}.flow-step:nth-child(3),.flow-step:nth-child(4){border-bottom:0}footer{gap:14px;flex-direction:column}}
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git & GitHub — Workshop COTI Informática</title>
+  <meta name="description" content="Landing page explicando os principais conceitos do Git e GitHub. Projeto do workshop COTI Informática." />
+  <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-    <header class="site-header"><nav class="nav shell" aria-label="Navegação principal"><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">⌘</span><span>github<span style="color:var(--lime)">.lab</span></span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button><div class="nav-links" id="nav-links"><a href="#conceitos">Conceitos</a><a href="#fluxo">Fluxo de trabalho</a><a href="#duvidas">Dúvidas</a><a class="nav-cta" href="https://github.com/" target="_blank" rel="noreferrer">Abrir GitHub ↗</a></div></nav></header>
-    <main>
-        <section class="hero shell" id="inicio"><div><p class="eyebrow">Workshop COTI Informática / 01</p><h1>Ideias viram código <em>compartilhado.</em></h1><p class="hero-copy">GitHub é o espaço onde pessoas e projetos se encontram. Entenda a linguagem essencial para colaborar com confiança.</p><div class="hero-actions"><a class="button" href="#conceitos">Explorar conceitos ↓</a><a class="button secondary" href="https://docs.github.com/pt" target="_blank" rel="noreferrer">Documentação ↗</a></div></div><div class="code-window" aria-label="Exemplo de fluxo GitHub"><div class="window-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="code-dim mono" style="margin-left:auto">meu-projeto / terminal</span></div><pre><span class="code-dim">$</span> git <span class="code-green">clone</span> projeto-incrivel
-<span class="code-dim">$</span> git <span class="code-green">checkout -b</span> nova-ideia
-<span class="code-dim">$</span> git <span class="code-green">add</span> .
-<span class="code-dim">$</span> git <span class="code-green">commit -m</span> <span class="code-coral">"Minha melhoria"</span>
-<span class="code-dim">$</span> git <span class="code-green">push</span> origin nova-ideia
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">projeto-github</a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menu">
+        <span class="hamburger"></span>
+      </button>
+      <nav id="main-nav" class="main-nav">
+        <a href="#about">Sobre</a>
+        <a href="#concepts">Conceitos</a>
+        <a href="#workflow">Fluxo</a>
+        <a href="#learn-more">Aprender</a>
+      </nav>
+    </div>
+  </header>
 
-<span class="code-dim">// pronto para revisão ✓</span></pre></div></section>
-        <section class="section" id="conceitos"><div class="shell"><div class="section-heading"><div><p class="eyebrow">A base de tudo / 02</p><h2>Seis palavras para começar a colaborar.</h2></div><p class="section-intro">Cada conceito resolve uma parte do trabalho em equipe, do primeiro arquivo à versão publicada.</p></div><div class="concept-grid"><article class="concept"><span class="concept-number">01 / REPOSITÓRIO</span><h3>O projeto</h3><p>É a casa do seu código: arquivos, histórico, documentação e as regras de colaboração ficam juntos.</p></article><article class="concept"><span class="concept-number">02 / COMMIT</span><h3>O registro</h3><p>Um ponto salvo no histórico. Cada commit conta o que mudou e deixa o trabalho rastreável.</p></article><article class="concept"><span class="concept-number">03 / BRANCH</span><h3>A linha paralela</h3><p>Uma cópia independente do projeto para experimentar ou construir uma funcionalidade sem interromper a principal.</p></article><article class="concept"><span class="concept-number">04 / MERGE</span><h3>A união</h3><p>Quando o trabalho de uma branch é incorporado à branch principal, as duas histórias passam a caminhar juntas.</p></article><article class="concept"><span class="concept-number">05 / PULL REQUEST</span><h3>O convite</h3><p>Uma proposta de mudança aberta para revisão. É onde a conversa e o feedback acontecem antes do merge.</p></article><article class="concept"><span class="concept-number">06 / ISSUE</span><h3>O combinado</h3><p>Um espaço para registrar tarefas, bugs e ideias. Organização para que nada importante se perca.</p></article></div></div></section>
-        <section class="section" id="fluxo"><div class="shell"><div class="section-heading"><div><p class="eyebrow">Na prática / 03</p><h2>Do seu computador para o time.</h2></div><p class="section-intro">Um ciclo curto, claro e repetível para transformar uma ideia em contribuição.</p></div><div class="flow"><div class="flow-step"><strong>01 / CLONE</strong><span>Baixe o repositório e tenha o projeto localmente.</span></div><div class="flow-step"><strong>02 / CHANGE</strong><span>Crie uma branch e faça suas alterações.</span></div><div class="flow-step"><strong>03 / REVIEW</strong><span>Envie a branch e abra um Pull Request.</span></div><div class="flow-step"><strong>04 / MERGE</strong><span>Após a revisão, sua contribuição entra no projeto.</span></div></div></div></section>
-        <section class="section" id="duvidas"><div class="shell"><div class="section-heading"><div><p class="eyebrow">Sem vergonha de perguntar / 04</p><h2>As dúvidas que aparecem primeiro.</h2></div></div><div class="faq"><details><summary>Git e GitHub são a mesma coisa?</summary><p>Não. Git é o sistema de controle de versão que roda no seu computador. GitHub é uma plataforma online que hospeda repositórios Git e facilita a colaboração.</p></details><details><summary>Preciso trabalhar em equipe para usar branches?</summary><p>Não. Branches também ajudam no trabalho individual, pois permitem testar ideias com segurança sem alterar a versão estável do projeto.</p></details><details><summary>O que torna um bom commit?</summary><p>Uma mudança pequena, coerente e descrita com uma mensagem objetiva. Assim, qualquer pessoa consegue entender o que aconteceu no histórico.</p></details></div></div></section>
-    </main>
-    <footer class="shell"><span>Feito para aprender, compartilhar e construir.</span><span class="mono">COTI / <span id="year"></span></span></footer>
-    <script>const menuButton=document.querySelector('.menu-button');const navLinks=document.querySelector('#nav-links');menuButton.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('is-open');menuButton.setAttribute('aria-expanded',isOpen)});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('is-open');menuButton.setAttribute('aria-expanded','false')}));document.querySelector('#year').textContent=new Date().getFullYear();</script>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Aprenda Git e GitHub</h1>
+          <p class="lead">Controle de versão, colaboração e fluxo de trabalho — tudo que você precisa para trabalhar com código em equipe.</p>
+          <p class="cta-row">
+            <a class="btn primary" href="#concepts">Comece agora</a>
+            <a class="btn ghost" href="#workflow">Ver fluxo</a>
+          </p>
+        </div>
+        <div class="hero-card">
+          <h3>Resumo rápido</h3>
+          <ul>
+            <li><strong>Git</strong> — sistema de controle de versão distribuído (commits, branches).</li>
+            <li><strong>GitHub</strong> — plataforma para hospedar repositórios, Pull Requests, Issues e colaboração.</li>
+            <li><strong>Workflow</strong> — clone, branch, commit, push, pull request, review e merge.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section container">
+      <h2>Sobre este projeto</h2>
+      <p>Este projeto foi criado durante o Workshop de GitHub na COTI Informática como um exercício prático para entender conceitos de versionamento, colaboração e publicação de código. A landing page explica os principais conceitos e mostra um fluxo de trabalho simples.</p>
+    </section>
+
+    <section id="concepts" class="section bg-alt">
+      <div class="container">
+        <h2>Principais conceitos do Git & GitHub</h2>
+        <div class="cards">
+          <article class="card">
+            <header>
+              <h3>Repositório (Repository)</h3>
+            </header>
+            <p>Um repositório armazena o código-fonte, histórico de commits, branches e configurações do projeto. Pode ser público ou privado.</p>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3>Commit</h3>
+            </header>
+            <p>Um commit representa um conjunto de alterações salvas no histórico. Sempre inclua mensagens claras para descrever o que foi feito.</p>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3>Branch</h3>
+            </header>
+            <p>Branches permitem trabalhar em funcionalidades separadas sem afetar o código principal (geralmente <code>main</code> ou <code>master</code>).</p>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3>Pull Request (PR)</h3>
+            </header>
+            <p>Pull Requests são pedidos de revisão e fusão de uma branch para outra. Permitem revisão de código, comentários e integração contínua.</p>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3>Issues</h3>
+            </header>
+            <p>Issues são usados para rastrear tarefas, bugs e solicitações de melhoria. Podem ter labels, assignees e milestones.</p>
+          </article>
+
+          <article class="card">
+            <header>
+              <h3>Fork & Clone</h3>
+            </header>
+            <p>Fork cria uma cópia do repositório em sua conta. Clone copia o repositório localmente para que você possa trabalhar no código.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section">
+      <div class="container">
+        <h2>Exemplo de fluxo de trabalho</h2>
+        <ol class="workflow">
+          <li><strong>Clone</strong> o repositório: <code>git clone &lt;url-do-repo&gt;</code></li>
+          <li><strong>Crie uma branch</strong>: <code>git checkout -b minha-feature</code></li>
+          <li><strong>Faça alterações</strong> e <strong>commit</strong>: <code>git add .</code> e <code>git commit -m "Descrição"</code></li>
+          <li><strong>Push</strong> da branch: <code>git push origin minha-feature</code></li>
+          <li><strong>Abra um Pull Request</strong> no GitHub para revisão e discussão.</li>
+          <li>Depois de aprovado, <strong>merge</strong> na branch principal e faça o deploy.</li>
+        </ol>
+
+        <div class="note">
+          <strong>Dica:</strong> mantenha commits pequenos e mensagens descritivas; isso facilita a revisão e a volta atrás se necessário.
+        </div>
+      </div>
+    </section>
+
+    <section id="learn-more" class="section bg-alt">
+      <div class="container">
+        <h2>Recursos para continuar aprendendo</h2>
+        <ul class="resources">
+          <li><a href="https://docs.github.com/" target="_blank" rel="noopener">GitHub Docs</a></li>
+          <li><a href="https://git-scm.com/book/pt-br/v2" target="_blank" rel="noopener">Pro Git (livro)</a></li>
+          <li><a href="https://guides.github.com/" target="_blank" rel="noopener">GitHub Guides</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Projeto Workshop GitHub — COTI Informática • &copy; <span id="year"></span></p>
+      <p>Repositório: <a href="https://github.com/mmagdev/projeto-github" target="_blank" rel="noopener">mmagdev/projeto-github</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
 </body>
 </html>
